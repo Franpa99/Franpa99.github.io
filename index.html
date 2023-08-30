@@ -1,7 +1,124 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
-    </body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Portafolio Web - Francisco Parietti Morixe</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Francisco Parietti Morixe</h1>
+        <p>¡Hola! Soy Francisco, un apasionado del desarrollo web y de videojuegos de 23 años, oriundo de Montevideo, Uruguay.</p>
+    </header>
+    <section id="nav-section">
+        <nav>
+            <ul>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#conocimientos">Conocimientos</a></li>
+                <li><a href="#educacion">Educación</a></li>
+                <li><a href="#redes">Redes Sociales</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </section>
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <ul>
+            <li>Adaptabilidad a cambios</li>
+            <li>Análisis de datos</li>
+            <li>Capacidad de aprendizaje continuo</li>
+            <li>Creatividad en solución de problemas</li>
+            <li>Comunicación y gestión del tiempo</li>
+            <li>Organización y planificación</li>
+            <li>Orientación a resultados</li>
+            <li>Pensamiento analítico</li>
+            <li>Pragmatismo</li>
+            <li>Resiliencia</li>
+            <li>Resolución de problemas y conflictos</li>
+            <li>Toma de decisiones</li>
+            <li>Trabajo en equipo</li>
+        </ul>
+    </section>
+    <section id="conocimientos">
+        <h2>Conocimientos</h2>
+        <ul>
+            <li>Adobe Illustrator</li>
+            <li>Adobe Lightroom</li>
+            <li>Adobe Photoshop</li>
+            <li>Adobe Premiere Pro</li>
+            <li>API Testing</li>
+            <li>CSS</li>
+            <li>HTML</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>Jira</li>
+            <li>Microsoft Access</li>
+            <li>Microsoft Excel</li>
+            <li>Microsoft PowerPoint</li>
+            <li>Microsoft Word</li>
+            <li>Postman</li>
+            <li>Soap UI</li>
+            <li>Unreal Engine 4</li>
+        </ul>
+    </section>
+    <section id="educacion">
+        <h2>Educación</h2>
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Institución</th>
+                <th>Tiempo</th>
+            </tr>
+            <tr>
+                <td>Bachillerato de Ingeniería</td>
+                <td>Colegio Stella Maris</td>
+                <td>Marzo 2016 - Diciembre 2017</td>
+            </tr>
+            <tr>
+                <td>Ingeniería en Sistemas</td>
+                <td>Universidad ORT</td>
+                <td>Marzo 2018 - Diciembre 2021</td>
+            </tr>
+            <tr>
+                <td>Ingeniería en Computación</td>
+                <td>Universidad de la República</td>
+                <td>Marzo 2022 - Actualidad</td>
+            </tr>
+            <tr>
+                <td>Testing QA Manual</td>
+                <td>Coderhouse</td>
+                <td>Enero 2023 - Febrero 2023</td>
+            </tr>
+            <tr>
+                <td>Jóvenes a Programar</td>
+                <td>Plan Ceibal</td>
+                <td>Marzo 2023 - Actualidad</td>
+            </tr>
+        </table>
+    </section>
+    <section id="redes">
+        <h2>Redes Sociales</h2>
+        <ul class="social-links">
+            <li><a href="#" class="social-link" data-profile="instagram"><img src="images/instagram.png" alt="Instagram"></a></li>
+            <li><a href="#" class="social-link" data-profile="linkedin"><img src="images/linkedin.png" alt="Linkedin"></a></li>
+            <li><a href="#" class="social-link" data-profile="github"><img src="images/github.png" alt="GitHub"></a></li>
+        </ul>
+    </section>
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form id="contact-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+            <p class="error-message" id="form-error">Por favor, completa todos los campos.</p>
+        </form>
+    </section>
+    <script src="js/script.js"></script>
+</body>
 </html>
