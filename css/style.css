@@ -3,37 +3,46 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #0B0B45;
+    color: #fff;
 }
 
 /* Estilos de encabezado */
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #00008B;
     padding: 1rem;
     text-align: center;
 }
 
 header h1 {
     margin: 0;
+    font-size: 2.5rem;
+    color: #fff;
 }
 
 /* Estilos de descripción en el encabezado */
 header p {
     margin: 0;
+    font-size: 1.2rem;
 }
 
 /* Estilos de secciones */
 section {
     padding: 2rem;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 section h2 {
     margin-top: 0;
+    color: #0B0B45;
 }
 
 /* Estilos para el menú de navegación */
 #nav-section {
-    background-color: #444;
+    background-color: #0B0B45;
     position: sticky;
     top: 0;
 }
@@ -89,6 +98,10 @@ nav ul li a:hover {
     flex-direction: column;
     max-width: 400px;
     margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 #contact-form label,
@@ -98,9 +111,21 @@ nav ul li a:hover {
 }
 
 #contact-form button {
-    background-color: #333;
+    background-color: #0B0B45;
     color: #fff;
-    border: 2px solid #333;
+    border: none;
     padding: 10px 15px;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Estilos para los enlaces en el formulario de contacto */
+#contact-form a {
+    color: #0B0B45;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact-form a:hover {
+    color: #ff9900;
 }
