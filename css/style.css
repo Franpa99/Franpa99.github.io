@@ -69,6 +69,46 @@ nav ul li a:hover {
     color: #ff9900;
 }
 
+/* Estilos para listas */
+.list-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.list-section li {
+    margin: 0 0 10px;
+    position: relative;
+}
+
+.list-section li::before {
+    content: "\2022";
+    color: #0B0B45;
+    position: absolute;
+    left: -1.2em;
+}
+
+/* Estilos para tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Estilo para la fila de encabezado de la tabla */
+th {
+    background-color: #0B0B45;
+    color: #fff;
+}
+
 /* Estilos para los logotipos de redes sociales */
 .social-links {
     list-style: none;
