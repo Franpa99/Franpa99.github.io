@@ -13,7 +13,7 @@ function ageCalculator() {
                         <p>¡Hola! Soy Francisco, un apasionado del desarrollo web, desarrollo de videojuegos y fútbol de ${age} años, oriundo de Montevideo, Uruguay.</p>`;
 }
 
-/* Llama a la función al carga la página para mostrar la edad en el encabezado */
+/* Llama a la función al cargar la página para mostrar la edad en el encabezado */
 ageCalculator();
 
 document.getElementById('contact-form').addEventListener('submit', function (event) {
