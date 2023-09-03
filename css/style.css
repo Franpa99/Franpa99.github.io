@@ -33,6 +33,7 @@ section {
     margin: 20px 0;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #0B0B45;
 }
 
 section h2 {
@@ -102,6 +103,7 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #0B0B45;
 }
 
 #contact-form label,
