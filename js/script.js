@@ -1,3 +1,20 @@
+function ageCalculator() {
+    const dob = new Date("1999-11-05");
+    const currentDate = new Date();
+    /* Calcula la diferencia en años entre la fecha de nacimiento y la fecha actual */
+    const age = currentDate.getFullYear() - dob.getFullYear();
+    /* Verifica si el cumpleaños ya ha ocurrido este año */
+    if (currentDate.getMonth() < dob.getMonth() || (currentDate.getMonth() === dob.getMonth() && currentDate.getDate() < dob.getDate())) {
+        age--;
+    }
+    /* Muestra la edad en el encabezado */
+    const header = document.querySelector('header');
+    header.innerHTML += `<p>Tengo ${age} años y soy un apasionado del desarrollo web y de videojuegos, oriundo de Montevideo, Uruguay.</p>`;
+}
+
+/* Llama a la función al cargar la página para mostrar la edad en el encabezado */
+ageCalculator();
+
 document.getElementById('contact-form').addEventListener('submit', function (event) {
     const nombre = document.getElementById('nombre').value;
     const email = document.getElementById('email').value;
