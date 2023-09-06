@@ -76,3 +76,21 @@ function changeAudioSource(newSource) {
     audio.load();
     audio.play();
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const loadingOverlay = document.getElementById("loading-overlay");
+    const enterButton = document.getElementById("enter-button");
+    /* Cuando se hace clic en el botón "Entrar" */
+    enterButton.addEventListener("click", function() {
+        loadingOverlay.style.opacity = "0";
+        enterButton.style.opacity = "0";
+        setTimeout(function () {
+            loadingOverlay.style.display = "none";
+        }, 1000);
+        /* Reproducir el audio */
+        const audio = document.getElementById("myAudio");
+        if (audio) {
+            audio.play();
+        }
+    });
+});
