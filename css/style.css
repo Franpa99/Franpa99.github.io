@@ -1,6 +1,6 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #0B0B45;
@@ -41,11 +41,28 @@ section h2 {
     color: #0B0B45;
 }
 
+/* Estilos para el botón de silencio */
+#muteButton {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+    background-image: url(images/sound_on.png);
+    background-size: cover;
+    text-indent: -9999px;
+}
+
 /* Estilos para el menú de navegación */
 #nav-section {
     background-color: #0B0B45;
     position: sticky;
     top: 0;
+    border-radius: 0;
 }
 
 nav ul {
@@ -99,14 +116,15 @@ table, th, td {
 }
 
 th, td {
-    padding: 10px;
-    text-align: left;
+    padding: 12px;
+    text-align: center;
 }
 
 /* Estilo para la fila de encabezado de la tabla */
 th {
     background-color: #0B0B45;
     color: #fff;
+    font-weight: bold;
 }
 
 /* Estilos para los logotipos de redes sociales */

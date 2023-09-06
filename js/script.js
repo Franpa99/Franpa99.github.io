@@ -28,3 +28,34 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
         errorElement.style.display = 'none';
     }
 });
+
+/* Obtenemos el elemento de audio y el botón de silencio */
+var audio = document.getElementById("myAudio");
+var muteButton = document.getElementById("muteButton");
+
+/* Imágenes del parlante encendido y apagado */
+var speakerOnImage = "images/sound_on.png";
+var speakerOffImage = "images/sound_off.png";
+
+/* Función para alternar entre silenciar y reanudar la música */
+function toggleMute() {
+    if (audio.paused) {
+        audio.play();
+        muteButton.style.backgroundImage = `url(images/sound_on.png)`;
+        muteButton.textContent = "";
+    } else {
+        audio.pause();
+        muteButton.style.backgroundImage = `url(images/sound_off.png)`;
+        muteButton.textContent = "";
+    }
+}
+
+/* Agregamos un evento clic al botón de silencio */
+muteButton.addEventListener("click", toggleMute);
+
+/* Inicialmente, establece la imagen del botón según el estado de audio */
+if (audio.paused) {
+    muteButton.style.backgroundImage = `url(${speakerOffImage})`;
+} else {
+    muteButton.style.backgroundImage = `url(${speakerOnImage})`;
+}
