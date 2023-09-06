@@ -21,11 +21,21 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
     const email = document.getElementById('email').value;
     const mensaje = document.getElementById('mensaje').value;
     const errorElement = document.getElementById('form-error');
+    const confirmationMessage = document.getElementById('confirmation-message');
     if (!nombre || !email || !mensaje) {
         event.preventDefault();
         errorElement.style.display = 'block';
     } else {
         errorElement.style.display = 'none';
+        if (mensaje === "666") {
+            /* Cambiar el archivo de audio a "666.mp3" */
+            changeAudioSource("audio/666.mp3");
+        }
+        /* Muestra el mensaje de confirmación */
+        confirmationMessage.textContent = "Mensaje enviado con éxito.";
+        confirmationMessage.style.display = 'block';
+        /* Evita que se envíe el formulario */
+        event.preventDefault();
     }
 });
 
@@ -39,12 +49,12 @@ var speakerOffImage = "images/sound_off.png";
 
 /* Función para alternar entre silenciar y reanudar la música */
 function toggleMute() {
-    if (audio.paused) {
-        audio.play();
+    if (audio.muted) {
+        audio.muted = false;
         muteButton.style.backgroundImage = `url(images/sound_on.png)`;
-        muteButton.textContent = "";
+        muteButton.textContent = "Silenciar";
     } else {
-        audio.pause();
+        audio.muted = true;
         muteButton.style.backgroundImage = `url(images/sound_off.png)`;
         muteButton.textContent = "";
     }
@@ -54,8 +64,15 @@ function toggleMute() {
 muteButton.addEventListener("click", toggleMute);
 
 /* Inicialmente, establece la imagen del botón según el estado de audio */
-if (audio.paused) {
+if (audio.muted) {
     muteButton.style.backgroundImage = `url(${speakerOffImage})`;
 } else {
     muteButton.style.backgroundImage = `url(${speakerOnImage})`;
+}
+
+function changeAudioSource(newSource) {
+    const audioSource = document.getElementById("audioSource");
+    audioSource.src = newSource;
+    audio.load();
+    audio.play();
 }

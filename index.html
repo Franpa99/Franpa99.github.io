@@ -117,10 +117,11 @@
             <textarea id="mensaje" name="mensaje" required></textarea>
             <button type="submit">Enviar</button>
             <p class="error-message" id="form-error">Por favor, completa todos los campos.</p>
+            <div id="confirmation-message" style="display: none;"></div>
         </form>
     </section>
     <audio id="myAudio" autoplay loop style="display: none">
-        <source src="audio/music.mp3" type="audio/mpeg">
+        <source id="audioSource" src="audio/music.mp3" type="audio/mpeg">
     </audio>
     <button id="muteButton" style="background-image: url(images/sound_on.png);">Silenciar</button>
     <script src="js/script.js"></script>
