@@ -94,3 +94,22 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const navLinks = document.querySelectorAll("#nav-section a");
+    navLinks.forEach(function(link) {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                const offset = 120;
+                const targetOffsetTop = targetElement.offsetTop - offset;
+                window.scrollTo({
+                    top: targetOffsetTop,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+});
