@@ -31,11 +31,17 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
             /* Cambiar el archivo de audio a "666.mp3" */
             changeAudioSource("audio/666.mp3");
         }
-        /* Muestra el mensaje de confirmación */
+        /* Muestra el mensaje de confirmación con estilo y animación */
         confirmationMessage.textContent = "Mensaje enviado con éxito.";
+        confirmationMessage.style.backgroundColor = "#ff9900";
+        confirmationMessage.style.color = "#000";
         confirmationMessage.style.display = 'block';
         /* Evita que se envíe el formulario */
         event.preventDefault();
+        /* Después de 2 segundos, oculta el mensaje de confirmación */
+        setTimeout(function() {
+            confirmationMessage.style.display = 'none';
+        }, 2000);
     }
 });
 
