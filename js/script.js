@@ -1,118 +1,100 @@
-function ageCalculator() {
-    const dob = new Date("1999-11-05");
-    const currentDate = new Date();
-    /* Calcula la diferencia en años entre la fecha de nacimiento y la fecha actual */
-    let age = currentDate.getFullYear() - dob.getFullYear();
-    /* Verifica si el cumpleaños ya ha ocurrido este año */
-    if (currentDate.getMonth() < dob.getMonth() || (currentDate.getMonth() === dob.getMonth() && currentDate.getDate() < dob.getDate())) {
-        age--;
-    }
-    /* Muestra la edad en el encabezado */
-    const header = document.querySelector('header');
-    header.innerHTML = `<h1>Francisco Parietti Morixe</h1>
-                        <p>¡Hola! Soy Francisco, un apasionado del desarrollo web, desarrollo de videojuegos y fútbol de ${age} años, oriundo de Montevideo, Uruguay.</p>`;
-}
-
-/* Llama a la función al cargar la página para mostrar la edad en el encabezado */
-ageCalculator();
-
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-    const nombre = document.getElementById('nombre').value;
-    const email = document.getElementById('email').value;
-    const mensaje = document.getElementById('mensaje').value;
-    const errorElement = document.getElementById('form-error');
-    const confirmationMessage = document.getElementById('confirmation-message');
-    if (!nombre || !email || !mensaje) {
-        event.preventDefault();
-        errorElement.style.display = 'block';
+/* Función para calcular la edad */
+function calcularEdad(fechaNacimiento) {
+    const hoy = new Date();
+    const nacimiento = new Date(fechaNacimiento);
+    const edad = hoy.getFullYear() - nacimiento.getFullYear();
+    if (hoy.getMonth() < nacimiento.getMonth() || (hoy.getMonth() === nacimiento.getMonth() && hoy.getDate() < nacimiento.getDate())) {
+        return edad - 1;
     } else {
-        errorElement.style.display = 'none';
-        if (mensaje === "666") {
-            /* Cambiar el archivo de audio a "666.mp3" */
-            changeAudioSource("audio/666.mp3");
-        }
-        /* Muestra el mensaje de confirmación con estilo y animación */
-        confirmationMessage.textContent = "Mensaje enviado con éxito.";
-        confirmationMessage.style.backgroundColor = "#ff9900";
-        confirmationMessage.style.color = "#000";
-        confirmationMessage.style.display = 'block';
-        /* Evita que se envíe el formulario */
-        event.preventDefault();
-        /* Después de 2 segundos, oculta el mensaje de confirmación */
-        setTimeout(function() {
-            confirmationMessage.style.display = 'none';
-        }, 2000);
-    }
-});
-
-/* Obtenemos el elemento de audio y el botón de silencio */
-var audio = document.getElementById("myAudio");
-var muteButton = document.getElementById("muteButton");
-
-/* Imágenes del parlante encendido y apagado */
-var speakerOnImage = "images/sound_on.png";
-var speakerOffImage = "images/sound_off.png";
-
-/* Función para alternar entre silenciar y reanudar la música */
-function toggleMute() {
-    if (audio.muted) {
-        audio.muted = false;
-        muteButton.style.backgroundImage = `url(images/sound_on.png)`;
-        muteButton.textContent = "Silenciar";
-    } else {
-        audio.muted = true;
-        muteButton.style.backgroundImage = `url(images/sound_off.png)`;
-        muteButton.textContent = "";
+        return edad;
     }
 }
 
-/* Agregamos un evento clic al botón de silencio */
-muteButton.addEventListener("click", toggleMute);
-
-/* Inicialmente, establece la imagen del botón según el estado de audio */
-if (audio.muted) {
-    muteButton.style.backgroundImage = `url(${speakerOffImage})`;
-} else {
-    muteButton.style.backgroundImage = `url(${speakerOnImage})`;
-}
-
+/* Función para cambiar la fuente de audio */
 function changeAudioSource(newSource) {
     const audioSource = document.getElementById("audioSource");
     audioSource.src = newSource;
+    const audio = document.getElementById("myAudio");
     audio.load();
     audio.play();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const loadingOverlay = document.getElementById("loading-overlay");
-    const enterButton = document.getElementById("enter-button");
-    /* Cuando se hace clic en el botón "Entrar" */
-    enterButton.addEventListener("click", function() {
-        loadingOverlay.style.opacity = "0";
-        enterButton.style.opacity = "0";
-        setTimeout(function () {
-            loadingOverlay.style.display = "none";
-        }, 1000);
-        /* Reproducir el audio */
-        const audio = document.getElementById("myAudio");
-        if (audio) {
-            audio.play();
+/* Función para reproducir o silenciar el audio */
+function toggleSilenciar() {
+    const audio = document.getElementById("myAudio");
+    audio.muted = !audio.muted;
+    const botonSilenciar = document.getElementById("muteButton");
+    const imagenAlt = audio.muted ? "images/sound_off.png" : "images/sound_on.png";
+    botonSilenciar.style.backgroundImage = `url(${imagenAlt})`;
+    botonSilenciar.textContent = audio.muted ? "" : "Silenciar";
+}
+
+/* Función para actualizar la edad en el encabezado */
+function actualizarEdad() {
+    const edad = calcularEdad("1999-11-05");
+    const encabezado = document.querySelector('header');
+    encabezado.innerHTML = `
+        <h1>Francisco Parietti Morixe</h1>
+        <p>¡Hola! Soy Francisco, un apasionado del desarrollo web, desarrollo de videojuegos y fútbol de ${edad} años, oriundo de Montevideo, Uruguay.</p>
+    `;
+}
+
+/* Evento al cargar la página */
+document.addEventListener('DOMContentLoaded', function () {
+    /* Actualizar la edad en el encabezado */
+    actualizarEdad();
+    /* Silenciar o reanudar el audio */
+    const botonSilenciar = document.getElementById("muteButton");
+    botonSilenciar.addEventListener("click", toggleSilenciar);
+    /* Validación del formulario de contacto */
+    const formularioContacto = document.getElementById('contact-form');
+    formularioContacto.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const email = document.getElementById('email').value;
+        const mensaje = document.getElementById('mensaje').value;
+        const errorElemento = document.getElementById('form-error');
+        const mensajeConfirmacion = document.getElementById('confirmation-message');
+        if (!nombre || !email || !mensaje) {
+            errorElemento.style.display = 'block';
+        } else {
+            errorElemento.style.display = 'none';
+            if (mensaje === "666") {
+                changeAudioSource("audio/666.mp3");
+            }
+            mensajeConfirmacion.textContent = "Mensaje enviado con éxito.";
+            mensajeConfirmacion.style.backgroundColor = "#ff9900";
+            mensajeConfirmacion.style.color = "#000";
+            mensajeConfirmacion.style.display = 'block';
+            setTimeout(function () {
+                mensajeConfirmacion.style.display = 'none';
+            }, 2000);
         }
     });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const navLinks = document.querySelectorAll("#nav-section a");
-    navLinks.forEach(function(link) {
-        link.addEventListener("click", function(event) {
+    /* Controlar el evento de clic en el botón "Entrar" */
+    const overlayCarga = document.getElementById("loading-overlay");
+    const botonEntrar = document.getElementById("enter-button");
+    const audio = document.getElementById("myAudio");
+    botonEntrar.addEventListener("click", function () {
+        overlayCarga.style.opacity = "0";
+        botonEntrar.style.opacity = "0";
+        audio.play();
+        setTimeout(function () {
+            overlayCarga.style.display = "none";
+        }, 1000);
+    });
+    /* Navegación suave al hacer clic en los enlaces de navegación */
+    const enlacesNavegacion = document.querySelectorAll("#nav-section a");
+    enlacesNavegacion.forEach(function (enlace) {
+        enlace.addEventListener("click", function (event) {
             event.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                const offset = 120;
-                const targetOffsetTop = targetElement.offsetTop - offset;
+            const destinoId = this.getAttribute("href").substring(1);
+            const destinoElemento = document.getElementById(destinoId);
+            if (destinoElemento) {
+                const desplazamiento = 120;
+                const posicionDestino = destinoElemento.offsetTop - desplazamiento;
                 window.scrollTo({
-                    top: targetOffsetTop,
+                    top: posicionDestino,
                     behavior: "smooth"
                 });
             }
