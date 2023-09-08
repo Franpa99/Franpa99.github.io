@@ -59,8 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
             errorElemento.style.display = 'block';
         } else {
             errorElemento.style.display = 'none';
-            if (mensaje === "666") {
-                changeAudioSource("audio/666.mp3");
+            if (email === "yami.sinsajo@gmail.com" || email === "yamilasilvacarro@gmail.com") {
+                changeAudioSource("audio/rocketpowers.mp3");
+            } else {
+                if (mensaje === "666") {
+                    changeAudioSource("audio/666.mp3");
+                }
             }
             mensajeConfirmacion.textContent = "Mensaje enviado con éxito.";
             mensajeConfirmacion.style.backgroundColor = "#ff9900";
