@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio personal de Francisco Parietti Morixe, entusiasta de los videojuegos y la tecnología.">
+    <meta name="author" content="Francisco Parietti Morixe">
     <link rel="stylesheet" href="css/style.css">
-    <title>Portafolio Web - Francisco Parietti Morixe</title>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Francisco Parietti Morixe | Portafolio Web</title>
 </head>
 <body>
     <div id="loading-overlay">
@@ -18,118 +20,130 @@
         <h1>Francisco Parietti Morixe</h1>
         <p>¡Hola! Soy Francisco, un apasionado del desarrollo web, desarrollo de videojuegos y fútbol de X años, oriundo de Montevideo, Uruguay.</p>
     </header>
-    <section id="nav-section">
-        <nav>
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#conocimientos">Conocimientos</a></li>
+            <li><a href="#educacion">Educación</a></li>
+            <li><a href="#redes">Redes Sociales</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="habilidades" class="list-section">
+            <h2>Habilidades</h2>
             <ul>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#conocimientos">Conocimientos</a></li>
-                <li><a href="#educacion">Educación</a></li>
-                <li><a href="#redes">Redes Sociales</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li>Adaptabilidad a cambios</li>
+                <li>Análisis de datos</li>
+                <li>Capacidad de aprendizaje continuo</li>
+                <li>Creatividad en solución de problemas</li>
+                <li>Comunicación y gestión del tiempo</li>
+                <li>Organización y planificación</li>
+                <li>Orientación a resultados</li>
+                <li>Pensamiento analítico</li>
+                <li>Pragmatismo</li>
+                <li>Resiliencia</li>
+                <li>Resolución de problemas y conflictos</li>
+                <li>Toma de decisiones</li>
+                <li>Trabajo en equipo</li>
             </ul>
-        </nav>
-    </section>
-    <section id="habilidades" class="list-section">
-        <h2>Habilidades</h2>
-        <ul>
-            <li>Adaptabilidad a cambios</li>
-            <li>Análisis de datos</li>
-            <li>Capacidad de aprendizaje continuo</li>
-            <li>Creatividad en solución de problemas</li>
-            <li>Comunicación y gestión del tiempo</li>
-            <li>Organización y planificación</li>
-            <li>Orientación a resultados</li>
-            <li>Pensamiento analítico</li>
-            <li>Pragmatismo</li>
-            <li>Resiliencia</li>
-            <li>Resolución de problemas y conflictos</li>
-            <li>Toma de decisiones</li>
-            <li>Trabajo en equipo</li>
-        </ul>
-    </section>
-    <section id="conocimientos" class="list-section">
-        <h2>Conocimientos</h2>
-        <ul>
-            <li>Adobe Illustrator</li>
-            <li>Adobe Lightroom</li>
-            <li>Adobe Photoshop</li>
-            <li>Adobe Premiere Pro</li>
-            <li>API Testing</li>
-            <li>CSS</li>
-            <li>HTML</li>
-            <li>Java</li>
-            <li>JavaScript</li>
-            <li>Jira</li>
-            <li>Microsoft Access</li>
-            <li>Microsoft Excel</li>
-            <li>Microsoft PowerPoint</li>
-            <li>Microsoft Word</li>
-            <li>Postman</li>
-            <li>Soap UI</li>
-            <li>Unreal Engine 4</li>
-        </ul>
-    </section>
-    <section id="educacion">
-        <h2>Educación</h2>
-        <table>
-            <tr>
-                <th>Nombre</th>
-                <th>Institución</th>
-                <th>Tiempo</th>
-            </tr>
-            <tr>
-                <td>Bachillerato de Ingeniería</td>
-                <td>Colegio Stella Maris</td>
-                <td>Marzo 2016 - Diciembre 2017</td>
-            </tr>
-            <tr>
-                <td>Ingeniería en Sistemas</td>
-                <td>Universidad ORT</td>
-                <td>Marzo 2018 - Diciembre 2021</td>
-            </tr>
-            <tr>
-                <td>Ingeniería en Computación</td>
-                <td>Universidad de la República</td>
-                <td>Marzo 2022 - Actualidad</td>
-            </tr>
-            <tr>
-                <td>Testing QA Manual</td>
-                <td>Coderhouse</td>
-                <td>Enero 2023 - Febrero 2023</td>
-            </tr>
-            <tr>
-                <td>Jóvenes a Programar</td>
-                <td>Plan Ceibal</td>
-                <td>Marzo 2023 - Actualidad</td>
-            </tr>
-        </table>
-    </section>
-    <section id="redes">
-        <h2>Redes Sociales</h2>
-        <ul class="social-links">
-            <li><a href="https://www.instagram.com/franpa99/" class="social-link" data-profile="instagram"><img src="images/instagram.png" alt="Instagram"></a></li>
-            <li><a href="https://www.linkedin.com/in/francisco-parietti-morixe/" class="social-link" data-profile="linkedin"><img src="images/linkedin.png" alt="Linkedin"></a></li>
-            <li><a href="https://github.com/Franpa99" class="social-link" data-profile="github"><img src="images/github.png" alt="GitHub"></a></li>
-        </ul>
-    </section>
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <form id="contact-form">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
-            <button type="submit">Enviar</button>
-            <p class="error-message" id="form-error">Por favor, completa todos los campos.</p>
-            <div id="confirmation-message" style="display: none;"></div>
-        </form>
-    </section>
-    <audio id="myAudio" loop style="display: none">
+        </section>
+        <section id="conocimientos" class="list-section">
+            <h2>Conocimientos</h2>
+            <ul>
+                <li>Adobe Illustrator</li>
+                <li>Adobe Lightroom</li>
+                <li>Adobe Photoshop</li>
+                <li>Adobe Premiere Pro</li>
+                <li>API Testing</li>
+                <li>CSS</li>
+                <li>HTML</li>
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>Jira</li>
+                <li>Microsoft Access</li>
+                <li>Microsoft Excel</li>
+                <li>Microsoft PowerPoint</li>
+                <li>Microsoft Word</li>
+                <li>Postman</li>
+                <li>Soap UI</li>
+                <li>Unreal Engine 4</li>
+            </ul>
+        </section>
+        <section id="educacion">
+            <h2>Educación</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Institución</th>
+                        <th>Tiempo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bachillerato de Ingeniería</td>
+                        <td>Colegio Stella Maris</td>
+                        <td>Marzo 2016 - Diciembre 2017</td>
+                    </tr>
+                    <tr>
+                        <td>Ingeniería en Sistemas</td>
+                        <td>Universidad ORT</td>
+                        <td>Marzo 2018 - Diciembre 2021</td>
+                    </tr>
+                    <tr>
+                        <td>Ingeniería en Computación</td>
+                        <td>Universidad de la República</td>
+                        <td>Marzo 2022 - Actualidad</td>
+                    </tr>
+                    <tr>
+                        <td>Testing QA Manual</td>
+                        <td>Coderhouse</td>
+                        <td>Enero 2023 - Febrero 2023</td>
+                    </tr>
+                    <tr>
+                        <td>Jóvenes a Programar</td>
+                        <td>Plan Ceibal</td>
+                        <td>Marzo 2023 - Actualidad</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="redes">
+            <h2>Redes Sociales</h2>
+            <ul class="social-links">
+                <li><a href="https://www.instagram.com/franpa99/" class="social-link" data-profile="instagram"><img src="images/instagram.png" alt="Perfil de Instagram de Francisco"></a></li>
+                <li><a href="https://www.linkedin.com/in/francisco-parietti-morixe/" class="social-link" data-profile="linkedin"><img src="images/linkedin.png" alt="Perfil de LinkedIn de Francisco"></a></li>
+                <li><a href="https://github.com/Franpa99" class="social-link" data-profile="github"><img src="images/github.png" alt="Repositorio de GitHub de Francisco"></a></li>
+            </ul>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form id="contact-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+
+                <p class="error-message" id="form-error">Por favor, completa todos los campos.</p>
+                <div id="confirmation-message" style="display: none;"></div>
+            </form>
+        </section>
+    </main>
+
+    <audio id="myAudio" loop hidden>
         <source id="audioSource" src="audio/music.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
     </audio>
-    <button id="muteButton" style="background-image: url(images/sound_on.png);">Silenciar</button>
+
+    <button id="muteButton" aria-label="Silenciar música" style="background-image: url(images/sound_on.png);">Silenciar</button>
+
     <script src="js/script.js"></script>
 </body>
 </html>
