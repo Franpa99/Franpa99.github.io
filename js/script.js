@@ -79,7 +79,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const overlayCarga = document.getElementById("loading-overlay");
     const botonEntrar = document.getElementById("enter-button");
     const audio = document.getElementById("myAudio");
+    const botonSilenciar = document.getElementById("muteButton");
+    botonSilenciar.style.backgroundImage = audio.muted
+        ? "url(images/sound_off.png)"
+        : "url(images/sound_on.png)";
     botonEntrar.addEventListener("click", function () {
+        botonEntrar.disabled = true;
         overlayCarga.style.opacity = "0";
         botonEntrar.style.opacity = "0";
         audio.play();
