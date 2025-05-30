@@ -90,6 +90,14 @@ nav ul li a:hover {
     color: #ff9900;
 }
 
+nav ul li a:focus,
+#enter-button:focus,
+#contact-form button:focus,
+#muteButton:focus {
+    outline: 2px solid #ff9900;
+    outline-offset: 2px;
+}
+
 /* Secciones generales */
 section {
     padding: 2rem;
@@ -128,6 +136,8 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 table, th, td {
@@ -198,6 +208,10 @@ th {
     border-radius: 5px;
 }
 
+#contact-form button:hover {
+    background-color: #ff9900;
+}
+
 #contact-form a {
     color: #0B0B45;
     text-decoration: none;
@@ -220,12 +234,9 @@ th {
 }
 
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+    0% { opacity: 1; }
+    90% { opacity: 0; }
+    100% { opacity: 0; display: none; }
 }
 
 /* Botón de Silencio */
@@ -242,4 +253,15 @@ th {
     background-image: url(images/sound_on.png);
     background-size: cover;
     text-indent: -9999px;
+}
+
+#muteButton.sound-off {
+    background-image: url(images/sound_off.png);
+}
+
+@media (max-width: 600px) {
+    section {
+        margin: 10px;
+        padding: 1rem;
+    }
 }
