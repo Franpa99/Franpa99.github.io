@@ -440,6 +440,8 @@ function initEasterEggs() {
             clickTimer = setTimeout(() => { clickCount = 0; }, 500);
         });
     }
+}
+
 /* Main Initialization */
 document.addEventListener('DOMContentLoaded', function () {
     actualizarEdad();
@@ -452,8 +454,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initKonamiCode();
     trackSectionVisit();
     initEasterEggs();
-    
-    setTimeout(() => unlockAchievement('reader'), 120000);
     
     setTimeout(() => unlockAchievement('reader'), 120000);
     
