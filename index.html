@@ -5,33 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portafolio personal de Francisco Parietti Morixe, entusiasta de los videojuegos y la tecnología.">
     <meta name="author" content="Francisco Parietti Morixe">
+    <meta property="og:title" content="Francisco Parietti Morixe | Portafolio Web">
+    <meta property="og:description" content="Desarrollador web y de videojuegos de Montevideo, Uruguay. Estudiante de Ingeniería en Computación.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://franpa99.github.io">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <title>Francisco Parietti Morixe | Portafolio Web</title>
 </head>
 <body>
-    <div id="loading-overlay">
-        <div id="loading-content">
-            <h1>Bienvenido</h1>
-            <button id="enter-button">Entrar</button>
-        </div>
-    </div>
     <header>
-        <h1>Francisco Parietti Morixe</h1>
-        <p>¡Hola! Soy Francisco, un apasionado del desarrollo web, desarrollo de videojuegos y fútbol de X años, oriundo de Montevideo, Uruguay.</p>
+        <canvas id="particles-canvas"></canvas>
+        <div class="header-content">
+            <button id="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+                <span class="sun-icon">&#9728;</span>
+                <span class="moon-icon">&#9790;</span>
+            </button>
+            <h1 id="main-title">Francisco Parietti Morixe</h1>
+            <p id="header-description">¡Hola! Soy Francisco, un apasionado del desarrollo web, desarrollo de videojuegos y fútbol de X años, oriundo de Montevideo, Uruguay.</p>
+            <a href="#contacto" class="btn-primary">Descargar CV</a>
+        </div>
     </header>
-    <nav aria-label="Navegación principal">
-        <ul>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#conocimientos">Conocimientos</a></li>
-            <li><a href="#educacion">Educación</a></li>
-            <li><a href="#redes">Redes Sociales</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+    <section id="nav-section">
+        <button id="hamburger" aria-label="Menú de navegación" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#conocimientos">Conocimientos</a></li>
+                <li><a href="#idiomas">Idiomas</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#logros">Logros</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#educacion">Educación</a></li>
+                <li><a href="#redes">Redes Sociales</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </section>
     <main>
-        <section id="habilidades" class="list-section">
-            <h2>Habilidades</h2>
+        <section id="sobre-mi" class="reveal">
+            <h2>👋 Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Soy un desarrollador apasionado por la tecnología y los videojuegos, con una sólida formación académica en Ingeniería en Computación. Mi camino en el mundo tech comenzó con la curiosidad de entender cómo funcionan las cosas, y se ha convertido en una pasión por crear experiencias digitales únicas.</p>
+                    <p>Me especializo en desarrollo web full-stack y testing QA, con experiencia en tecnologías modernas como JavaScript, HTML5, CSS3, y Java. Además, tengo un gran interés en el desarrollo de videojuegos utilizando Unreal Engine 4.</p>
+                    <p>Actualmente estoy cursando Ingeniería en Computación en la Universidad de la República y participando en el programa Jóvenes a Programar de Plan Ceibal, donde continúo expandiendo mis conocimientos y habilidades.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="5">0</span>
+                            <span class="stat-label">Años Estudiando</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="15">0</span>
+                            <span class="stat-label">Tecnologías</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="3">0</span>
+                            <span class="stat-label">Proyectos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="habilidades" class="list-section reveal">
+            <h2>🎯 Habilidades</h2>
             <ul>
                 <li>Adaptabilidad a cambios</li>
                 <li>Análisis de datos</li>
@@ -48,9 +91,10 @@
                 <li>Trabajo en equipo</li>
             </ul>
         </section>
-        <section id="conocimientos" class="list-section">
-            <h2>Conocimientos</h2>
-            <ul>
+        <section id="conocimientos" class="list-section reveal">
+            <h2>🛠️ Conocimientos</h2>
+            <input type="text" id="knowledge-search" placeholder="🔍 Buscar tecnología..." />
+            <ul id="knowledge-list">
                 <li>Adobe Illustrator</li>
                 <li>Adobe Lightroom</li>
                 <li>Adobe Photoshop</li>
@@ -70,55 +114,224 @@
                 <li>Unreal Engine 4</li>
             </ul>
         </section>
-        <section id="educacion">
-            <h2>Educación</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Institución</th>
-                        <th>Tiempo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bachillerato de Ingeniería</td>
-                        <td>Colegio Stella Maris</td>
-                        <td>Marzo 2016 - Diciembre 2017</td>
-                    </tr>
-                    <tr>
-                        <td>Ingeniería en Sistemas</td>
-                        <td>Universidad ORT</td>
-                        <td>Marzo 2018 - Diciembre 2021</td>
-                    </tr>
-                    <tr>
-                        <td>Ingeniería en Computación</td>
-                        <td>Universidad de la República</td>
-                        <td>Marzo 2022 - Actualidad</td>
-                    </tr>
-                    <tr>
-                        <td>Testing QA Manual</td>
-                        <td>Coderhouse</td>
-                        <td>Enero 2023 - Febrero 2023</td>
-                    </tr>
-                    <tr>
-                        <td>Jóvenes a Programar</td>
-                        <td>Plan Ceibal</td>
-                        <td>Marzo 2023 - Actualidad</td>
-                    </tr>
-                </tbody>
-            </table>
+        <section id="idiomas" class="reveal">
+            <h2>🌎 Idiomas</h2>
+            <div class="languages-grid">
+                <div class="language-card">
+                    <div class="flag">🇪🇸</div>
+                    <h3>Español</h3>
+                    <div class="language-level">
+                        <div class="level-bar" style="width: 100%"></div>
+                    </div>
+                    <p class="level-text">Nativo</p>
+                </div>
+                <div class="language-card">
+                    <div class="flag">🇬🇧</div>
+                    <h3>Inglés</h3>
+                    <div class="language-level">
+                        <div class="level-bar" style="width: 75%"></div>
+                    </div>
+                    <p class="level-text">Avanzado</p>
+                </div>
+                <div class="language-card">
+                    <div class="flag">🇧🇷</div>
+                    <h3>Portugués</h3>
+                    <div class="language-level">
+                        <div class="level-bar" style="width: 50%"></div>
+                    </div>
+                    <p class="level-text">Intermedio</p>
+                </div>
+            </div>
         </section>
-        <section id="redes">
-            <h2>Redes Sociales</h2>
+        <section id="experiencia" class="reveal">
+            <h2>💼 Experiencia Laboral</h2>
+            <div class="experience-container">
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <h3>Desarrollador Freelance</h3>
+                        <span class="exp-date">2023 - Presente</span>
+                    </div>
+                    <h4>Autónomo</h4>
+                    <p>Desarrollo de proyectos web personalizados, testing QA y consultoría en tecnología.</p>
+                    <ul class="exp-achievements">
+                        <li>Diseño y desarrollo de sitios web responsive</li>
+                        <li>Testing manual y automatizado de aplicaciones</li>
+                        <li>Implementación de soluciones con JavaScript y Java</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <h3>Estudiante e Investigador</h3>
+                        <span class="exp-date">2022 - Presente</span>
+                    </div>
+                    <h4>Universidad de la República</h4>
+                    <p>Participación en proyectos académicos y desarrollo de habilidades en ingeniería.</p>
+                </div>
+            </div>
+        </section>
+        <section id="hobbies" class="reveal">
+            <h2>🎮 Hobbies e Intereses</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎮</div>
+                    <h3>Videojuegos</h3>
+                    <p>Desarrollo y diseño de juegos</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">⚽</div>
+                    <h3>Fútbol</h3>
+                    <p>Fanático del deporte</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">💻</div>
+                    <h3>Programación</h3>
+                    <p>Aprendizaje continuo</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎨</div>
+                    <h3>Diseño</h3>
+                    <p>Creatividad digital</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">🎵</div>
+                    <h3>Música</h3>
+                    <p>Escucha y exploración</p>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-icon">📚</div>
+                    <h3>Lectura</h3>
+                    <p>Tecnología y ficción</p>
+                </div>
+            </div>
+        </section>
+        <section id="logros" class="reveal">
+            <h2>🏆 Logros</h2>
+            <p class="achievements-progress">Progreso: <span id="achievements-unlocked">0</span>/6</p>
+            <div class="achievements-grid" id="achievements-grid">
+                <!-- Los logros se cargarán dinámicamente -->
+            </div>
+        </section>
+        <section id="proyectos" class="reveal">
+            <h2>💼 Proyectos</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="game">Videojuegos</button>
+                <button class="filter-btn" data-filter="testing">Testing</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/corazon.png" alt="Proyecto 1">
+                    </div>
+                    <div class="project-content">
+                        <h3>Portafolio Personal</h3>
+                        <p>Sitio web personal desarrollado con HTML, CSS y JavaScript vanilla. Incluye diseño responsive y animaciones suaves.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Franpa99" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="game">
+                    <div class="project-image">
+                        <img src="images/corazon.png" alt="Proyecto 2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Proyecto Unreal Engine</h3>
+                        <p>Desarrollo de videojuego utilizando Unreal Engine 4, implementando mecánicas de juego y diseño de niveles.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Unreal Engine 4</span>
+                            <span class="tech-tag">Blueprints</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Franpa99" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="testing">
+                    <div class="project-image">
+                        <img src="images/corazon.png" alt="Proyecto 3">
+                    </div>
+                    <div class="project-content">
+                        <h3>Proyecto Testing QA</h3>
+                        <p>Suite de pruebas automatizadas utilizando herramientas como Postman y SoapUI para validación de APIs.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Postman</span>
+                            <span class="tech-tag">SoapUI</span>
+                            <span class="tech-tag">API Testing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Franpa99" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="educacion" class="reveal">
+            <h2>🎓 Educación</h2>
+            <div class="education-controls">
+                <button class="sort-btn active" data-sort="date">📅 Por Fecha</button>
+                <button class="sort-btn" data-sort="institution">🏫 Por Institución</button>
+            </div>
+            <div class="timeline" id="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Bachillerato de Ingeniería</h3>
+                        <h4>Colegio Stella Maris</h4>
+                        <p class="timeline-date">Marzo 2016 - Diciembre 2017</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Ingeniería en Sistemas</h3>
+                        <h4>Universidad ORT</h4>
+                        <p class="timeline-date">Marzo 2018 - Diciembre 2021</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Ingeniería en Computación</h3>
+                        <h4>Universidad de la República</h4>
+                        <p class="timeline-date">Marzo 2022 - Actualidad</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Testing QA Manual</h3>
+                        <h4>Coderhouse</h4>
+                        <p class="timeline-date">Enero 2023 - Febrero 2023</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Jóvenes a Programar</h3>
+                        <h4>Plan Ceibal</h4>
+                        <p class="timeline-date">Marzo 2023 - Actualidad</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="redes" class="reveal">
+            <h2>🌐 Redes Sociales</h2>
             <ul class="social-links">
                 <li><a href="https://www.instagram.com/franpa99/" class="social-link" data-profile="instagram"><img src="images/instagram.png" alt="Perfil de Instagram de Francisco"></a></li>
                 <li><a href="https://www.linkedin.com/in/francisco-parietti-morixe/" class="social-link" data-profile="linkedin"><img src="images/linkedin.png" alt="Perfil de LinkedIn de Francisco"></a></li>
                 <li><a href="https://github.com/Franpa99" class="social-link" data-profile="github"><img src="images/github.png" alt="Repositorio de GitHub de Francisco"></a></li>
             </ul>
         </section>
-        <section id="contacto">
-            <h2>Contacto</h2>
+        <section id="contacto" class="reveal">
+            <h2>📧 Contacto</h2>
             <form id="contact-form">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" autocomplete="name" required>
@@ -129,24 +342,72 @@
                 <label for="mensaje">Mensaje:</label>
                 <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
 
-                <div id="form-error" style="display: none; color: red; margin-top: 10px;">
+                <div id="form-error">
                     Por favor, completa todos los campos.
                 </div>
 
                 <button type="submit">Enviar</button>
 
-                <p class="error-message" id="form-error">Por favor, completa todos los campos.</p>
-                <div id="confirmation-message" style="display: none;"></div>
+                <div id="confirmation-message"></div>
             </form>
         </section>
     </main>
 
-    <audio id="myAudio" loop hidden>
-        <source id="audioSource" src="audio/music.mp3" type="audio/mpeg">
-        Tu navegador no soporta la reproducción de audio.
-    </audio>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Francisco Parietti Morixe</h3>
+                <p>Desarrollador Web & Videojuegos</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#conocimientos">Conocimientos</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#educacion">Educación</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/franpa99/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <img src="images/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/in/francisco-parietti-morixe/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <img src="images/linkedin.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://github.com/Franpa99" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <img src="images/github.png" alt="GitHub">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Francisco Parietti Morixe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-    <button id="muteButton" aria-label="Silenciar música" style="background-image: url(images/sound_on.png);">Silenciar</button>
+    <button id="backToTop" aria-label="Volver arriba" title="Volver arriba">&uarr;</button>
+    <div id="scroll-progress"></div>
+    
+    <!-- Achievement Notification -->
+    <div id="achievement-notification" class="achievement-hidden">
+        <div class="achievement-icon">🏆</div>
+        <div class="achievement-content">
+            <div class="achievement-title"></div>
+            <div class="achievement-description"></div>
+        </div>
+    </div>
+    
+    <!-- Visitor Counter -->
+    <div id="visitor-counter">
+        <span class="visitor-icon">👁️</span>
+        <span id="visit-count">0</span> visitas
+    </div>
+    
+    <!-- Confetti Container -->
+    <canvas id="confetti-canvas"></canvas>
 
     <script src="js/script.js"></script>
 </body>
