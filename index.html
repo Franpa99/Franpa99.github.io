@@ -328,31 +328,51 @@
         </section>
         <section id="logros" class="reveal">
             <h2>🏆 Logros</h2>
-            <p class="achievements-progress">Progreso: <span id="achievements-unlocked">0</span>/6</p>
+            <p class="achievements-progress">Progreso: <span id="achievements-unlocked">0</span>/12</p>
+            <button id="reset-achievements" class="btn-reset-achievements" title="Reiniciar todos los logros">🔄 Reiniciar Logros</button>
             <div class="achievements-grid" id="achievements-grid">
                 <!-- Los logros se cargarán dinámicamente -->
             </div>
         </section>
         <section id="contacto" class="reveal">
             <h2>📧 Contacto</h2>
-            <form id="contact-form" action="https://formspree.io/f/xwpgnnng" method="POST">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+            <p style="text-align: center; margin-bottom: 2rem;">¿Querés contactarme? Podés enviarme un mensaje o encontrarme en mis redes:</p>
+            
+            <div class="social-links">
+                <a href="https://github.com/Franpa99" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                    <img src="images/github.png" alt="GitHub" width="24" height="24">
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/francisco-parietti-morixe" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                    <img src="images/linkedin.png" alt="LinkedIn" width="24" height="24">
+                    LinkedIn
+                </a>
+                <a href="mailto:franparietti@gmail.com" class="social-link" title="Email">
+                    📧 Email
+                </a>
+            </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="_replyto" autocomplete="email" required>
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">O enviame un mensaje directo:</h3>
+                <form id="contact-form" action="https://formspree.io/f/xwpgnnng" method="POST">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" autocomplete="name" required>
 
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="_replyto" autocomplete="email" required>
 
-                <div id="form-error">
-                    Por favor, completa todos los campos.
-                </div>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
 
-                <button type="submit">Enviar</button>
+                    <div id="form-error">
+                        Por favor, completa todos los campos.
+                    </div>
 
-                <div id="confirmation-message"></div>
-            </form>
+                    <button type="submit">Enviar</button>
+
+                    <div id="confirmation-message"></div>
+                </form>
+            </div>
         </section>
     </main>
 

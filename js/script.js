@@ -224,12 +224,60 @@ const achievements = {
         icon: "🎮",
         hint: "Intenta con: ↑↑↓↓←→←→BA",
         unlocked: false 
+    },
+    speedRunner: {
+        title: "Velocista",
+        description: "Llegaste al final en menos de 30 segundos",
+        icon: "⚡",
+        hint: "Haz scroll rápido hasta el final del sitio",
+        unlocked: false
+    },
+    projectExplorer: {
+        title: "Inspector de Proyectos",
+        description: "Visitaste un proyecto en GitHub",
+        icon: "💼",
+        hint: "Haz clic en algún enlace de GitHub de los proyectos",
+        unlocked: false
+    },
+    formMaster: {
+        title: "Comunicador",
+        description: "Enviaste el formulario de contacto",
+        icon: "📧",
+        hint: "Completa y envía el formulario de contacto",
+        unlocked: false
+    },
+    cvDownloader: {
+        title: "Reclutador",
+        description: "Descargaste el CV",
+        icon: "📄",
+        hint: "Descarga el CV desde el botón del header",
+        unlocked: false
+    },
+    themeChanger: {
+        title: "Cambiador de Temas",
+        description: "Alternaste entre modo claro y oscuro 3 veces",
+        icon: "🎨",
+        hint: "Cambia el tema varias veces",
+        unlocked: false
+    },
+    filterMaster: {
+        title: "Explorador de Categorías",
+        description: "Usaste los filtros de proyectos",
+        icon: "🎯",
+        hint: "Prueba algún botón de filtro en Proyectos",
+        unlocked: false
     }
 };
 
 function unlockAchievement(achievementKey) {
     if (!achievements[achievementKey].unlocked) {
         achievements[achievementKey].unlocked = true;
+        
+        // Reproducir sonido de logro
+        const audio = new Audio('audio/achievement.mp3');
+        audio.volume = 0.5;
+        audio.play().catch(() => {}); // Ignorar errores si no se puede reproducir
+        
         showAchievementNotification(achievements[achievementKey]);
         
         const unlockedAchievements = JSON.parse(localStorage.getItem('achievements') || '[]');
@@ -239,7 +287,48 @@ function unlockAchievement(achievementKey) {
         }
         
         renderAchievements();
+        
+        // Verificar si todos los logros están desbloqueados
+        const totalAchievements = Object.keys(achievements).length;
+        if (unlockedAchievements.length === totalAchievements) {
+            setTimeout(() => {
+                // Reproducir sonido especial
+                const allAudio = new Audio('audio/allachievements.mp3');
+                allAudio.volume = 0.6;
+                allAudio.play().catch(() => {});
+                
+                // Crear confetti masivo
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => createConfetti(), i * 200);
+                }
+                
+                // Mostrar notificación especial
+                showMasterAchievementNotification();
+            }, 2000); // Esperar 2 segundos después del sonido del último logro
+        }
     }
+}
+
+function showMasterAchievementNotification() {
+    const notification = document.getElementById('achievement-notification');
+    const title = notification.querySelector('.achievement-title');
+    const description = notification.querySelector('.achievement-description');
+    const icon = notification.querySelector('.achievement-icon');
+    
+    // Cambiar el contenido
+    icon.textContent = '🎉';
+    title.textContent = '¡MAESTRO DE LOGROS!';
+    description.textContent = '¡Desbloqueaste TODOS los logros! Sos increíble 🌟';
+    
+    // Añadir clase especial para animación
+    notification.classList.remove('achievement-hidden');
+    notification.classList.add('master-achievement');
+    
+    setTimeout(() => {
+        notification.classList.add('achievement-hidden');
+        notification.classList.remove('master-achievement');
+        icon.textContent = '🏆'; // Restaurar icono original
+    }, 5000);
 }
 
 function showAchievementNotification(achievement) {
@@ -464,6 +553,32 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener('click', () => unlockAchievement('social'));
     });
     
+    /* Reset Achievements Button */
+    const resetButton = document.getElementById('reset-achievements');
+    if (resetButton) {
+        resetButton.addEventListener('click', function() {
+            if (confirm('¿Estás seguro de que quieres reiniciar todos los logros? Esta acción no se puede deshacer.')) {
+                // Limpiar localStorage
+                localStorage.removeItem('achievements');
+                localStorage.removeItem('themeChanges');
+                
+                // Resetear todos los logros
+                Object.keys(achievements).forEach(key => {
+                    achievements[key].unlocked = false;
+                });
+                
+                // Re-renderizar
+                renderAchievements();
+                
+                // Mostrar mensaje
+                alert('¡Logros reiniciados! Puedes empezar a desbloquearlos de nuevo.');
+                
+                // Recargar para resetear contadores
+                location.reload();
+            }
+        });
+    }
+    
     /* Scroll Animations */
     const revealElements = document.querySelectorAll('.reveal');
     
@@ -609,5 +724,64 @@ document.addEventListener('DOMContentLoaded', function () {
         if (backToTopButton) {
             backToTopButton.classList.toggle('show', scrollTop > 300);
         }
+    });
+    
+    /* Speed Runner Achievement - llegar al final en menos de 30 seg */
+    let pageLoadTime = Date.now();
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        if (scrollTop + windowHeight >= documentHeight - 100) {
+            const timeElapsed = (Date.now() - pageLoadTime) / 1000;
+            if (timeElapsed < 30) {
+                unlockAchievement('speedRunner');
+            }
+        }
+    });
+    
+    /* Theme Changer Achievement - cambiar tema 3 veces */
+    let themeChanges = parseInt(localStorage.getItem('themeChanges') || '0');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function() {
+            themeChanges++;
+            localStorage.setItem('themeChanges', themeChanges.toString());
+            if (themeChanges >= 3) {
+                unlockAchievement('themeChanger');
+            }
+        });
+    }
+    
+    /* Project Explorer Achievement - visitar un proyecto */
+    const projectLinks = document.querySelectorAll('.project-link');
+    projectLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            unlockAchievement('projectExplorer');
+        });
+    });
+    
+    /* CV Downloader Achievement */
+    const cvButton = document.querySelector('a[download]');
+    if (cvButton) {
+        cvButton.addEventListener('click', () => unlockAchievement('cvDownloader'));
+    }
+    
+    /* Form Master Achievement */
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', () => unlockAchievement('formMaster'));
+    }
+    
+    /* Filter Master Achievement - usar un filtro */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            if (filter !== 'all') {
+                unlockAchievement('filterMaster');
+            }
+        });
     });
 });

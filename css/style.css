@@ -788,6 +788,51 @@ th {
     margin-bottom: 10px;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-color);
+}
+
+.social-link svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover svg,
+.social-link:hover img {
+    transform: scale(1.1);
+}
+
 #contact-form input,
 #contact-form textarea {
     background-color: var(--section-bg);
@@ -1120,6 +1165,41 @@ footer {
     transform: translateX(0);
 }
 
+#achievement-notification.master-achievement {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 3px solid gold;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+    animation: pulse-glow 1s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        transform: translateX(0) scale(1);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(255, 215, 0, 0.9);
+        transform: translateX(0) scale(1.05);
+    }
+}
+
+#achievement-notification.master-achievement .achievement-icon {
+    font-size: 4rem;
+    animation: spin-bounce 0.8s ease-in-out infinite;
+}
+
+@keyframes spin-bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(10deg); }
+    75% { transform: translateY(-15px) rotate(-10deg); }
+}
+
+#achievement-notification.master-achievement .achievement-title {
+    font-size: 1.5rem;
+    color: gold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .achievement-icon {
     font-size: 3rem;
     animation: bounce 0.5s ease infinite alternate;
@@ -1216,6 +1296,31 @@ body.konami-mode header {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
+}
+
+.btn-reset-achievements {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-reset-achievements:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-reset-achievements:active {
+    transform: translateY(0);
 }
 
 .achievement-item {
