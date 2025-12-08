@@ -523,34 +523,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
     
-    /* Form Submission */
+    /* Form Submission - Formspree handles the actual sending */
     const formularioContacto = document.getElementById('contact-form');
     if (formularioContacto) {
         formularioContacto.addEventListener('submit', function (event) {
-            event.preventDefault();
             const nombre = document.getElementById('nombre').value.trim();
             const email = document.getElementById('email').value.trim();
             const mensaje = document.getElementById('mensaje').value.trim();
             const errorElemento = document.getElementById('form-error');
-            const mensajeConfirmacion = document.getElementById('confirmation-message');
             
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
             if (!nombre || !email || !mensaje) {
+                event.preventDefault();
                 errorElemento.textContent = 'Por favor, completa todos los campos.';
                 errorElemento.style.display = 'block';
             } else if (!emailRegex.test(email)) {
+                event.preventDefault();
                 errorElemento.textContent = 'Por favor, ingresa un email válido.';
                 errorElemento.style.display = 'block';
             } else {
                 errorElemento.style.display = 'none';
-                mensajeConfirmacion.textContent = "Mensaje enviado con éxito.";
-                mensajeConfirmacion.style.display = 'block';
-                
                 createConfetti();
-                formularioContacto.reset();
-                
-                setTimeout(() => mensajeConfirmacion.style.display = 'none', 2000);
+                // El formulario se envía naturalmente a Formspree
             }
         });
     }
