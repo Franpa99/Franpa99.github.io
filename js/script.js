@@ -517,8 +517,9 @@ document.addEventListener('DOMContentLoaded', function () {
             
             const filter = this.getAttribute('data-filter');
             document.querySelectorAll('.project-card').forEach(card => {
-                const category = card.getAttribute('data-category');
-                card.classList.toggle('hidden', filter !== 'all' && category !== filter);
+                const categories = card.getAttribute('data-category').split(' ');
+                const shouldShow = filter === 'all' || categories.includes(filter);
+                card.classList.toggle('hidden', !shouldShow);
             });
         });
     });
