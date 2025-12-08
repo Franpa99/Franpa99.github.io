@@ -15,7 +15,7 @@ function actualizarEdad() {
     const edad = calcularEdad("1999-11-05");
     const headerDescription = document.getElementById('header-description');
     if (headerDescription) {
-        headerDescription.textContent = `¡Hola! Soy Francisco, un apasionado del desarrollo web, desarrollo de videojuegos y fútbol de ${edad} años, oriundo de Montevideo, Uruguay.`;
+        headerDescription.textContent = `¡Hola! Soy Francisco, tengo ${edad} años y soy de Montevideo, Uruguay. Apasionado por el desarrollo, la tecnología y el fútbol.`;
     }
 }
 
@@ -298,22 +298,6 @@ function renderAchievements() {
     }
 }
 
-/* Visitor Counter */
-function updateVisitorCount() {
-    let visits = parseInt(localStorage.getItem('visitCount') || '0');
-    visits++;
-    localStorage.setItem('visitCount', visits.toString());
-    
-    const counter = document.getElementById('visit-count');
-    if (counter) {
-        counter.textContent = visits;
-    }
-    
-    if (visits === 1) {
-        unlockAchievement('visitor');
-    }
-}
-
 /* Knowledge Search */
 function initKnowledgeSearch() {
     const searchInput = document.getElementById('knowledge-search');
@@ -448,7 +432,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initParticles();
     loadAchievements();
     renderAchievements();
-    updateVisitorCount();
     initKnowledgeSearch();
     initEducationSorting();
     initKonamiCode();
