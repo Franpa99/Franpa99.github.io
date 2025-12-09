@@ -183,11 +183,11 @@ function createConfetti() {
 
 /* Achievement System */
 const achievements = {
-    visitor: { 
-        title: "¡Primera Visita!", 
-        description: "Gracias por visitar mi portafolio", 
+    welcomer: { 
+        title: "¡Bienvenido!", 
+        description: "Hiciste scroll hacia abajo", 
         icon: "👋",
-        hint: "Simplemente visita el sitio",
+        hint: "Simplemente haz scroll en la página",
         unlocked: false 
     },
     explorer: { 
@@ -251,6 +251,13 @@ const achievements = {
         description: "Descargaste el CV",
         icon: "📄",
         hint: "Descarga el CV desde el botón del header",
+        unlocked: false
+    },
+    profileClicker: {
+        title: "Fan Secreto",
+        description: "Hiciste clic en mi foto 10 veces",
+        icon: "🤳",
+        hint: "Hay algo especial en la foto del perfil...",
         unlocked: false
     },
     themeChanger: {
@@ -528,6 +535,29 @@ document.addEventListener('DOMContentLoaded', function () {
     initEasterEggs();
     
     setTimeout(() => unlockAchievement('reader'), 120000);
+    
+    /* Welcomer Achievement - desbloquear al hacer scroll */
+    let hasScrolled = false;
+    window.addEventListener('scroll', function() {
+        if (!hasScrolled && window.scrollY > 100) {
+            hasScrolled = true;
+            unlockAchievement('welcomer');
+        }
+    });
+    
+    /* Profile Clicker Achievement - logro secreto */
+    let profileClickCount = 0;
+    const profileImage = document.querySelector('.profile-image');
+    if (profileImage) {
+        profileImage.style.cursor = 'default'; // No mostrar que es clickeable
+        profileImage.addEventListener('click', function(e) {
+            e.stopPropagation(); // Evitar que se cuente para otros logros
+            profileClickCount++;
+            if (profileClickCount >= 10) {
+                unlockAchievement('profileClicker');
+            }
+        });
+    }
     
     /* Dark Mode */
     const themeToggle = document.getElementById('theme-toggle');
