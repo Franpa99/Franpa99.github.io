@@ -1166,38 +1166,51 @@ footer {
 }
 
 #achievement-notification.master-achievement {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: 3px solid gold;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-    animation: pulse-glow 1s ease-in-out infinite;
+    background: linear-gradient(135deg, #e0f7ff 0%, #b8e6ff 25%, #90d5ff 50%, #b8e6ff 75%, #e0f7ff 100%);
+    border: 3px solid #a8d8f0;
+    box-shadow: 0 0 40px rgba(184, 230, 255, 0.8), inset 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: platinum-glow 2s ease-in-out infinite;
+    color: #1a5f7a;
 }
 
-@keyframes pulse-glow {
+@keyframes platinum-glow {
     0%, 100% {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        box-shadow: 0 0 40px rgba(184, 230, 255, 0.8), inset 0 0 30px rgba(255, 255, 255, 0.3);
         transform: translateX(0) scale(1);
     }
     50% {
-        box-shadow: 0 0 50px rgba(255, 215, 0, 0.9);
+        box-shadow: 0 0 60px rgba(184, 230, 255, 1), inset 0 0 40px rgba(255, 255, 255, 0.5);
         transform: translateX(0) scale(1.05);
     }
 }
 
 #achievement-notification.master-achievement .achievement-icon {
     font-size: 4rem;
-    animation: spin-bounce 0.8s ease-in-out infinite;
+    animation: platinum-shine 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(184, 230, 255, 0.8));
 }
 
-@keyframes spin-bounce {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-15px) rotate(10deg); }
-    75% { transform: translateY(-15px) rotate(-10deg); }
+@keyframes platinum-shine {
+    0%, 100% { 
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 0 10px rgba(184, 230, 255, 0.8));
+    }
+    50% { 
+        transform: translateY(-10px) scale(1.1);
+        filter: drop-shadow(0 0 20px rgba(184, 230, 255, 1));
+    }
 }
 
 #achievement-notification.master-achievement .achievement-title {
     font-size: 1.5rem;
-    color: gold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #0e4a5f;
+    text-shadow: 0 0 10px rgba(184, 230, 255, 0.8), 1px 1px 2px rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+}
+
+#achievement-notification.master-achievement .achievement-description {
+    color: #1a5f7a;
+    font-weight: 500;
 }
 
 .achievement-icon {

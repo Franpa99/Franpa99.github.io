@@ -184,93 +184,93 @@ function createConfetti() {
 /* Achievement System */
 const achievements = {
     welcomer: { 
-        title: "¡Bienvenido!", 
+        title: "Leaving Vault 111", 
         description: "Hiciste scroll hacia abajo", 
-        icon: "👋",
+        icon: "🚪",
         hint: "Simplemente haz scroll en la página",
         unlocked: false 
     },
     explorer: { 
-        title: "Explorador", 
+        title: "100% Completion", 
         description: "Visitaste todas las secciones", 
-        icon: "🗺️",
+        icon: "💯",
         hint: "Navega por todas las secciones del portafolio",
         unlocked: false 
     },
     reader: { 
-        title: "Lector Curioso", 
+        title: "Datapoint Collector", 
         description: "Pasaste más de 2 minutos en el sitio", 
-        icon: "📖",
+        icon: "📡",
         hint: "Dedica tiempo a explorar el contenido",
         unlocked: false 
     },
     darkMode: { 
-        title: "Modo Nocturno", 
+        title: "Stealth Mode", 
         description: "Activaste el modo oscuro", 
-        icon: "🌙",
+        icon: "🕶️",
         hint: "Encuentra el botón para cambiar el tema",
         unlocked: false 
     },
     social: { 
-        title: "Social", 
+        title: "Social Club", 
         description: "Visitaste mis redes sociales", 
-        icon: "🔗",
+        icon: "🌐",
         hint: "Haz clic en algún enlace de redes sociales",
         unlocked: false 
     },
     konami: { 
-        title: "Código Secreto", 
+        title: "Cheat Code Activated", 
         description: "¡Descubriste el código Konami!", 
         icon: "🎮",
         hint: "Intenta con: ↑↑↓↓←→←→BA",
         unlocked: false 
     },
     speedRunner: {
-        title: "Velocista",
+        title: "Speedrunner",
         description: "Llegaste al final en menos de 30 segundos",
-        icon: "⚡",
+        icon: "⏱️",
         hint: "Haz scroll rápido hasta el final del sitio",
         unlocked: false
     },
     projectExplorer: {
-        title: "Inspector de Proyectos",
+        title: "Mission Briefing",
         description: "Visitaste un proyecto en GitHub",
-        icon: "💼",
+        icon: "📋",
         hint: "Haz clic en algún enlace de GitHub de los proyectos",
         unlocked: false
     },
     formMaster: {
-        title: "Comunicador",
+        title: "Radio Message Sent",
         description: "Enviaste el formulario de contacto",
-        icon: "📧",
+        icon: "📻",
         hint: "Completa y envía el formulario de contacto",
         unlocked: false
     },
     cvDownloader: {
-        title: "Reclutador",
+        title: "Blueprint Acquired",
         description: "Descargaste el CV",
-        icon: "📄",
+        icon: "📜",
         hint: "Descarga el CV desde el botón del header",
         unlocked: false
     },
     profileClicker: {
-        title: "Fan Secreto",
+        title: "Secret Jiggy",
         description: "Hiciste clic en mi foto 10 veces",
-        icon: "🤳",
+        icon: "🧩",
         hint: "Hay algo especial en la foto del perfil...",
         unlocked: false
     },
     themeChanger: {
-        title: "Cambiador de Temas",
+        title: "Character Switch",
         description: "Alternaste entre modo claro y oscuro 3 veces",
-        icon: "🎨",
+        icon: "🔄",
         hint: "Cambia el tema varias veces",
         unlocked: false
     },
     filterMaster: {
-        title: "Explorador de Categorías",
+        title: "Inventory Manager",
         description: "Usaste los filtros de proyectos",
-        icon: "🎯",
+        icon: "🎒",
         hint: "Prueba algún botón de filtro en Proyectos",
         unlocked: false
     }
@@ -323,9 +323,9 @@ function showMasterAchievementNotification() {
     const icon = notification.querySelector('.achievement-icon');
     
     // Cambiar el contenido
-    icon.textContent = '🎉';
-    title.textContent = '¡MAESTRO DE LOGROS!';
-    description.textContent = '¡Desbloqueaste TODOS los logros! Sos increíble 🌟';
+    icon.textContent = '�';
+    title.textContent = 'Platinum Trophy';
+    description.textContent = 'Congratulations! All trophies unlocked';
     
     // Añadir clase especial para animación
     notification.classList.remove('achievement-hidden');
